@@ -13,6 +13,7 @@
         var $body = $('body');
         //$body.html('');
 
+        // Header
         var $header = $("<header></header>");
               $header.appendTo($body);
 
@@ -20,8 +21,17 @@
               $title.html("Welcome to Twittler");
               $title.appendTo($header);
 
-        var $section = $("<section class = 'tweetlist'></section>");
+
+        // Section
+        var $section = $("<section class = 'tweetList'></section>");
             $section.appendTo($body);
+
+        var $ul = $("<ul class = 'userTweets'></ul>");
+            $ul.appendTo($header);
+        var $li = $("<li></li>");
+            $li.appendTo($ul);
+
+
 
         function displayTweet(index){
           var tweet = streams.home[index];
@@ -43,17 +53,34 @@
           $tweet.addClass("tweetBox");
           $tweet.prependTo($section);
 
-          // $tweet.on('click',function(){
 
-          // })
+          $tweet.on('click',function(){
+              $li.remove();
+              $li = $("<li></li>");
+              $li.appendTo($ul);
 
+              var $tweetItem;
+              streams.users[tweet.user].forEach(function(item){
+                $tweetItem = $("<p>"+item.message+"</p>");
+                $tweetItem.appendTo($li);
+              })
+              $li.slideDown();
+          });
 
-
-          setTimeout(function(){displayTweet(index + 1);}, 3000);
+          setTimeout(function(){displayTweet(index + 1);}, 1500);
         };
 
 
         displayTweet(0);
+        // $("div").on('click',function(){
+        //     var $tweetItem;
+        //     streams.users["mracus"].forEach(function(item){
+        //       $tweetItem = $("<p>"+item.message+"</p>");
+        //       $tweetItem.appendTo($li);
+        //     })
+        //     $li.show();
+        // });
+
 
       });
 
