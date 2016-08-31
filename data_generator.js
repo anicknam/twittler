@@ -29,7 +29,7 @@ function timeStamp() {
     }
   }
 
-  return date.join("/") + " " + time.join(":") + " " + suffix;
+  return date.join("/") + "    " + time.join(":") + suffix;
 };
 
 // utility function for adding tweets to our data structures

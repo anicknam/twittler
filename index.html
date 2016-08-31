@@ -11,25 +11,37 @@
 
       $(document).ready(function(){
         var $body = $('body');
-        $body.html('');
+        //$body.html('');
 
+        var $header = $("<header></header>");
+              $header.appendTo($body);
+
+        var $title = $("<h1 class='title'></h1>");
+              $title.html("Welcome to Twittler");
+              $title.appendTo($header);
+
+        var $section = $("<section class = 'tweetlist'></section>");
+            $section.appendTo($body);
 
         function displayTweet(index){
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');
 
-          $tweet.par = function(text){
+          // Add <p> element and its class
+          $tweet.par = function(text,className){
             var p = $("<p>"+text+"</p>");
+            if (arguments.length>1){
+                p.addClass(className);
+            }
             this.append(p);
           };
 
-          $tweet.par('@' + tweet.user + ': ' + tweet.message);
-          $tweet.par(tweet.created_at);
-          //$tweet.text('@' + tweet.user + ': ' + tweet.message + " " + tweet.created_at);
+          $tweet.par('@' + tweet.user + ': ' + tweet.message,"tweetText");
+          $tweet.par(tweet.created_at,"dateTime");
 
 
           $tweet.addClass("tweetBox");
-          $tweet.prependTo($body);
+          $tweet.prependTo($section);
 
           // $tweet.on('click',function(){
 

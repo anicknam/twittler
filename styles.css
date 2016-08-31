@@ -1,14 +1,32 @@
-.tweetBox {
-            background-color: #DCDCDC;
-            font-family: \Trebuchet MS\, Helvetica, sans-serif;
-            height: 50px;
-            width: 500px;
-            margin: 0 auto;
-            border-radius: 7px;
-            margin-top: 5px;
-            margin-bottom: 5px;
-          }
 
 body {
     background-image: url("Images/BirdsTweet.jpg");
+}
+
+.tweetBox {
+            background-color: #DCDCDC;
+            font-family: \Trebuchet MS\, Helvetica, sans-serif;
+            height: 70px;
+            width: 400px;
+            margin: 0 auto;
+            border-style: solid;
+            border-radius: 7px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            position: relative;
+          }
+
+
+.tweetText {
+    padding: 1px 0 0 5px;
+}
+
+
+
+.dateTime {
+    font-size: 10px;
+    position: absolute;
+    bottom: 0px;
+    left: 7px;
+    color: #2F4F4F;
 }
