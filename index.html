@@ -46,7 +46,7 @@
             this.append(p);
           };
 
-          $tweet.par('@' + tweet.user + ': ' + tweet.message,"tweetText");
+          $tweet.par("<span class='userName'>"+'@' + tweet.user + '</span>'+': ' + tweet.message.trim()[0].toUpperCase()+tweet.message.trim().slice(1),"tweetText");
           $tweet.par(tweet.created_at,"dateTime");
 
           $tweet.addClass("tweetBox");
@@ -61,7 +61,7 @@
 
               var $tweetItem;
               streams.users[tweet.user].forEach(function(item){
-                  $tweetItem = $("<p>"+item.created_at+":   "+item.message+"</p>");
+                  $tweetItem = $("<p>"+item.created_at+":   "+item.message.trim()[0].toUpperCase()+item.message.trim().slice(1)+"</p>");
                   $tweetItem.addClass("userTweet");
                   $tweetItem.appendTo($li);
               })

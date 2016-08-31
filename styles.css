@@ -31,7 +31,6 @@ header {
             border-style: solid;
             border-radius: 7px;
             margin-top: 1px;
-            margin-bottom: 0px;
             position: relative;
           }
 
@@ -42,7 +41,10 @@ header {
     top: 0px;
 }
 
-
+.tweetText .userName {
+    color: #4169E1;
+    font-weight: bold;
+}
 
 .dateTime {
     font-size: 10px;
