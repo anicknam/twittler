@@ -1,0 +1,14 @@
+.tweetBox {
+            background-color: #DCDCDC;
+            font-family: \Trebuchet MS\, Helvetica, sans-serif;
+            height: 50px;
+            width: 500px;
+            margin: 0 auto;
+            border-radius: 7px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+          }
+
+body {
+    background-image: url("Images/BirdsTweet.jpg");
+}

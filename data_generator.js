@@ -6,12 +6,31 @@
 // set up data structures
 window.streams = {};
 streams.home = [];
+streams.time = []; // --------------------------------------------------------> Added
 streams.users = {};
 streams.users.shawndrost = [];
 streams.users.sharksforcheap = [];
 streams.users.mracus = [];
 streams.users.douglascalhoun = [];
 window.users = Object.keys(streams.users);
+
+// ----------------------------------------------------------------------------> Added
+function timeStamp() {
+  var now = new Date();
+  var date = [ now.getMonth() + 1, now.getDate(), now.getFullYear() ];
+  var time = [ now.getHours(), now.getMinutes(), now.getSeconds() ];
+  var suffix = ( time[0] < 12 ) ? "AM" : "PM";
+  time[0] = ( time[0] < 12 ) ? time[0] : time[0] - 12;
+  time[0] = time[0] || 12;
+
+  for ( var i = 1; i < 3; i++ ) {
+    if ( time[i] < 10 ) {
+      time[i] = "0" + time[i];
+    }
+  }
+
+  return date.join("/") + " " + time.join(":") + " " + suffix;
+};
 
 // utility function for adding tweets to our data structures
 var addTweet = function(newTweet){
@@ -42,13 +61,14 @@ var generateRandomTweet = function(){
   var tweet = {};
   tweet.user = randomElement(users);
   tweet.message = randomMessage();
-  tweet.created_at = new Date();
+  //tweet.created_at = new Date();
+  tweet.created_at = timeStamp(); //-------------------------------------------------> Added
   addTweet(tweet);
 };
 
-for(var i = 0; i < 10; i++){
-  generateRandomTweet();
-}
+// for(var i = 0; i < 10; i++){
+//   generateRandomTweet();
+// }
 
 var scheduleNextTweet = function(){
   generateRandomTweet();
