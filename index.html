@@ -53,7 +53,7 @@
           $tweet.prependTo($section).hide().fadeIn('slow');
 
           // Create a list of all generated tweets for the clicked user
-          $tweet.on('click',function(){
+          $(".userName").on('click',function(){
               $li.remove();
               $li = $("<li class = 'userTweetList'></li>");
               $li.appendTo($ul);

@@ -23,8 +23,8 @@ header {
 }
 
 .tweetBox {
-            background-color: #DCDCDC;
             font-family: \Trebuchet MS\, Helvetica, sans-serif;
+            background-color: #DCDCDC;
             height: 70px;
             width: 400px;
             margin: 0 auto;
@@ -36,18 +36,21 @@ header {
 
 
 .tweetText {
+    font-size:14px;
     padding: 0 0 0 5px;
+    margin: 5px 0 0 0;
     position: absolute;
     top: 0px;
 }
 
 .tweetText .userName {
+    font-size:16px;
     color: #4169E1;
     font-weight: bold;
 }
 
 .dateTime {
-    font-size: 10px;
+    font-size: 11px;
     position: absolute;
     bottom: 0px;
     left: 7px;
