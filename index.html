@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Twittler</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
@@ -20,7 +21,7 @@
               $title.html("Twittler");
               $title.appendTo($header);
         var $descrp = $("<h4 class='descrp'></h4>");
-              var descpMessage = "Loading today's tweets as posted", count=0, buffer=["",".","..","..."];
+              var descpMessage = "Loading tweets as posted", count=0, buffer=["",".","..","..."];
               $descrp.html(descpMessage);
               $descrp.appendTo($header);
 
@@ -58,12 +59,13 @@
           $tweet.addClass("tweetBox");
           $tweet.prependTo($section).hide().fadeIn('slow');
 
+
           // Create a list of all generated tweets for the clicked user
-          $tweet.on('click',function(){
+          $tweet.find(".userName").on('click',function(){
               $li.remove();
               $li = $("<li class = 'userTweetList'></li>");
               $li.appendTo($ul);
-              $li.append($("<h2 class='user'>"+"<b>@"+tweet.user+"</b>"+"</h2>"));
+              $li.append($("<h2 class='user'>"+"<strong>@"+tweet.user+"</strong>"+"</h2>"));
 
               var $tweetItem;
               streams.users[tweet.user].forEach(function(item){
